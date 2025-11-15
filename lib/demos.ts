@@ -1,10 +1,10 @@
 import {
-  AudioLines,
+  //AudioLines,
   MessageSquareQuote,
-  MessagesSquare,
-  Music,
-  Sparkles,
-  Users,
+  //MessagesSquare,
+  //Music,
+  //Sparkles,
+  //Users,
 } from 'lucide-react';
 import type { ComponentType } from 'react';
 
@@ -26,7 +26,7 @@ export const demos: { name: string; items: Demo[] }[] = [
         slug: 'text-to-speech',
         description: 'Convert text to natural-sounding speech.',
       },
-      {
+/*       {
         name: 'Speech to text',
         icon: AudioLines,
         slug: 'speech-to-text',
@@ -55,7 +55,7 @@ export const demos: { name: string; items: Demo[] }[] = [
         icon: MessagesSquare,
         slug: 'conversational-ai',
         description: 'Build life-like conversational agents.',
-      },
+      }, */
     ],
   },
 ];

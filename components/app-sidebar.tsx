@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import * as React from 'react';
 
-import { ApiKeyBanner } from '@/components/api-key-banner';
 import { Logo } from '@/components/logo';
 import {
   Sidebar,
@@ -55,8 +54,11 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarContent>
       <SidebarFooter className="p-4">
         <div className="flex w-full flex-col gap-2">
-          <div className="text-muted-foreground text-xs">API Configuration</div>
-          <ApiKeyBanner variant="sidebar" />
+          <div className="text-muted-foreground text-xs">
+            内部用
+            IP制限
+          </div>
+          {/* <ApiKeyBanner variant="sidebar" /> */}
         </div>
       </SidebarFooter>
     </Sidebar>

@@ -11,8 +11,6 @@ import { getElevenLabsClient, handleError } from '@/app/actions/utils';
 import { env } from '@/env.mjs';
 import { Err, Ok, Result } from '@/types';
 
-import { getApiKey } from './manage-api-key';
-
 export async function getAgentSignedUrl(
   request: conversationalAi.ConversationsGetSignedUrlRequest
 ): Promise<Result<ConversationSignedUrlResponseModel>> {
@@ -55,16 +53,7 @@ export async function getAgent(agentId: string): Promise<Result<GetAgentResponse
 }
 
 export async function getConversationToken(agentId: string): Promise<Result<{ token: string }>> {
-  const userKeyResult = await getApiKey();
-  const userApiKey = userKeyResult.ok ? userKeyResult.value : null;
-
-  const apiKey = userApiKey || env.ELEVENLABS_API_KEY;
-
-  if (!apiKey) {
-    return Err(
-      'API key is missing. Please set your API key in the app or configure the ELEVENLABS_API_KEY environment variable.'
-    );
-  }
+  const apiKey = env.ELEVENLABS_API_KEY;
 
   const response = await fetch(
     `https://api.elevenlabs.io/v1/convai/conversation/token?agent_id=${agentId}`,
